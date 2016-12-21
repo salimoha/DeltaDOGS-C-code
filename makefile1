@@ -1,0 +1,15 @@
+bPath:=/home/shahrouz/software/boost_1_55_0/
+exec:=OPT_KRIGING
+
+ALL: opt_kriging.o
+	g++ opt_kriging.o -o $(exec)
+
+opt_kriging.o: opt_kriging.cpp
+	g++ -I $(bPath) opt_kriging.cpp -c
+
+#cholesky.o: cholesky.cpp
+#	g++ -I $(bPath) cholesky.cpp -c
+run: 
+	./$(exec)
+clean:
+	rm -rf *.o $(exec)
